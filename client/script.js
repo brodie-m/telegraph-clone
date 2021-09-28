@@ -5,10 +5,15 @@ addentry.addEventListener("click", () => {
         title: title.value,
         name: pseudo.value,
         entry: entry.value,
-      }),
+      })
     };
-    fetch(`${host}/new`, options).then((res) => alert(res.msg));
+    fetch(`${host}/add-post`, options).then((res) => alert(res.msg));
   } else {
     alert("Please complete the form.");
   }
 });
+
+revealall.addEventListener("click", () =>{
+if(newentry.hidden){newentry.hidden=false}
+else{newentry.hidden = true}
+})

@@ -10,6 +10,7 @@
     </title>
 </head>
 <body>
+    <button id = "revealall">New post</button>
     <section class="main-content">
         <div class="main-title">
             
@@ -29,11 +30,12 @@
         
     <form id = "newentry" hidden = true display ="inline-block">
         <div class="row justify-content-around">
-        <input id = "title" type = "text" placeholder = "Title of post">
-        <input id = "pseudo" type = "text" placeholder = "Your name">
-        <input id = "entry" type = "textarea" placeholder = "Your entry">
+            <div class="card-body d-flex flex-column">
+        <input class="form-control my-2" id = "title" type = "text" placeholder = "Title of post">
+        <input class="form-control my-2" id = "pseudo" type = "text" placeholder = "Your name">
+        <textarea class="form-control" rows = "3" id = "entry" placeholder = "Your entry"></textarea>
         <input id = "addentry" type = "button" value="Submit">
-    </div>
+    </div></div>
     </form>
 </div>
 </body>
