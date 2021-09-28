@@ -18,7 +18,7 @@ addentry.addEventListener("click", () => {
       }),
     };
     console.log(options)
-    fetch(`https://${host}/add-post`, options).then((res) => res.send);
+    fetch(`https://${host}/add-post`, options).then((res) => console.log(res));
   } else {
     alert("Please complete the form.");
   }

@@ -8,22 +8,17 @@ server.use(cors());
 server.use(express.json());
 
 // function newPost(title, author, body) {}
-function newPost(body) {
-  console.log(body);
-  return new Post({
-    title: body.title,
-    author: body.author,
-    body: body.body,
-  });
-}
 
 server.get("/", (req, res) => res.send("hello world"));
 server.post("/add-post", (req, res) => {
-  //   newPost(req.body.title, req.body.name, req.body.entry);
-  newPost(req.body)
-    .save()
+//   newPost(req.body.title, req.body.name, req.body.entry);
+new Post({
+    "title": req.body.title,
+    "author": req.body.author,
+    "body": req.body.body,
+  }).save()
     .then((res) => {
-      res.send({ msg: "Post successfully added!" });
+      res.send("Post successfully added!");
     })
     .catch((err) => {
       console.log(err);
