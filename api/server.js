@@ -24,7 +24,7 @@ function newPost(title, author, body) {
 
 server.get("/", (req, res) => res.send("hello world"));
 server.post("/add-post", (req, res) => {
-  newPost(req.body.title, req.body.author, req.body.body);
+  newPost(req.body.title, req.body.name, req.body.entry);
 });
 
 server.get('/all-posts', (req, res) => {

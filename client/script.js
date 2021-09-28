@@ -1,4 +1,8 @@
 const host = "fp-telegraph-clone.herokuapp.com"
+const title = document.getElementById('title')
+const pseudo = document.getElementById('pseudo');
+const entry = document.getElementById('entry');
+
 
 addentry.addEventListener("click", () => {
   if (title.value != "" && pseudo.value != "" && entry.value != "") {
