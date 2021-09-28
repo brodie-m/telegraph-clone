@@ -4,13 +4,16 @@ const pseudo = document.getElementById('pseudo');
 const entry = document.getElementById('entry');
 
 
-addentry.addEventListener("click", () => {
+addentry.addEventListener("click", async () => {
   console.log(title.value,pseudo.value,entry.value)
   if (title.value != "" && pseudo.value != "" && entry.value != "") {
     const options = {
       "method": 'POST',
-      "Content-Type": "application/json",
-      json:true,
+      headers: {
+        'Accept': 'application/json',
+        "Content-Type": "application/json"
+
+      },
       body: JSON.stringify({
         title: title.value,
         author: pseudo.value,
@@ -18,7 +21,7 @@ addentry.addEventListener("click", () => {
       }),
     };
     console.log(options)
-    fetch(`https://${host}/add-post`, options).then((res) => console.log(res));
+    await fetch(`https://${host}/add-post`, options).then((res) => console.log(res));
   } else {
     alert("Please complete the form.");
   }
