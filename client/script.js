@@ -11,11 +11,11 @@ addentry.addEventListener("click", () => {
       "method": 'POST',
       "Content-Type": "application/json",
       json:true,
-      body: {
+      body: JSON.stringify({
         title: title.value,
         author: pseudo.value,
         body: entry.value,
-      },
+      }),
     };
     console.log(options)
     fetch(`https://${host}/add-post`, options).then((res) => res.send);
