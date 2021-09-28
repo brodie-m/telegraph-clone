@@ -7,24 +7,27 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 
-function newPost(title, author, body) {
-  const postToAdd = new Post({
-    title: title,
-    author: author,
-    body: body,
+// function newPost(title, author, body) {}
+function newPost(body) {
+  return new Post({
+    title: body.title,
+    author: body.author,
+    body: body.body,
   })
-    postToAdd.save()
+    
+}
+
+server.get("/", (req, res) => res.send("hello world"));
+server.post("/add-post", (req, res) => {
+//   newPost(req.body.title, req.body.name, req.body.entry);
+  const postToAdd = newPost(req.body)
+  postToAdd.save()
     .then((result) => {
       res.send(result);
     })
     .catch((err) => {
       console.log(err);
     });
-}
-
-server.get("/", (req, res) => res.send("hello world"));
-server.post("/add-post", (req, res) => {
-  newPost(req.body.title, req.body.name, req.body.entry);
 });
 
 server.get('/all-posts', (req, res) => {
