@@ -17,8 +17,8 @@ new Post({
     "author": req.body.author,
     "body": req.body.body,
   }).save()
-    .then((res) => {
-      res.send("Post successfully added!");
+    .then((result) => {
+      res.send(req.body);
     })
     .catch((err) => {
       console.log(err);
