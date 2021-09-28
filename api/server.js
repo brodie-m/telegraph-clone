@@ -13,12 +13,12 @@ server.get("/", (req, res) => res.send("hello world"));
 server.post("/add-post", (req, res) => {
 //   newPost(req.body.title, req.body.name, req.body.entry);
 new Post({
-    "title": req.query.body.title,
-    "author": req.query.body.author,
-    "body": req.query.body.body,
+    title: JSON.parse(req.body).title,
+    author: JSON.parse(req.body).author,
+    body: JSON.parse(req.body).body,
   }).save()
     .then((result) => {
-      res.send(req.query.body);
+      res.send(req.body);
     })
     .catch((err) => {
       console.log(err);
