@@ -1,28 +1,31 @@
-const express = require('express')
-const cors = require('cors')
-const mongoose = require('mongoose')
-const Post = require('./models/posts')
+const express = require("express");
+const cors = require("cors");
+const mongoose = require("mongoose");
+const Post = require("./models/posts");
 //set up server
 const server = express();
 server.use(cors());
-server.use(express.json())
+server.use(express.json());
 
-server.get('/', (req, res) => res.send('hello world'))
-server.get('/add-post', (req, res) => {
-    const newPost = new Post({
-        title: 'test post 2',
-        author: 'brodie',
-        body: 'this is a test post 2'
+function newPost(title, author, body) {
+  new Post({
+    title: title,
+    author: author,
+    body: body,
+  })
+    .save()
+    .then((result) => {
+      res.send(result);
     })
+    .catch((err) => {
+      console.log(err);
+    });
+}
 
-    newPost.save()
-        .then((result) => {
-            res.send(result)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-})
+server.get("/", (req, res) => res.send("hello world"));
+server.get("/add-post", (req, res) => {
+  newPost(req.body.title, req.body.author, req.body.body);
+});
 
 server.get('/all-posts', (req, res) => {
     Post.find()
@@ -53,4 +56,4 @@ mongoose.connect(dbURI, {
     .then((result) => console.log('connected to db'))
     .catch((err) => console.log(err))
 
-module.exports = server
+module.exports = server;
