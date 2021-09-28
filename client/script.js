@@ -3,6 +3,7 @@ const host = "fp-telegraph-clone.herokuapp.com"
 addentry.addEventListener("click", () => {
   if (title.value != "" && pseudo.value != "" && entry.value != "") {
     const options = {
+      method: 'POST',
       body: JSON.stringify({
         title: title.value,
         name: pseudo.value,

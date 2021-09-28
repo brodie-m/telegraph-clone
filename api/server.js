@@ -23,7 +23,7 @@ function newPost(title, author, body) {
 }
 
 server.get("/", (req, res) => res.send("hello world"));
-server.get("/add-post", (req, res) => {
+server.post("/add-post", (req, res) => {
   newPost(req.body.title, req.body.author, req.body.body);
 });
 
