@@ -5,15 +5,17 @@ const entry = document.getElementById('entry');
 
 
 addentry.addEventListener("click", () => {
+  console.log(title.value,pseudo.value,entry.value)
   if (title.value != "" && pseudo.value != "" && entry.value != "") {
     const options = {
       method: 'POST',
       body: JSON.stringify({
         title: title.value,
-        name: pseudo.value,
-        entry: entry.value,
+        author: pseudo.value,
+        body: entry.value,
       }),
     };
+    
     fetch(`https://${host}/add-post`, options).then((res) => alert(res.msg));
   } else {
     alert("Please complete the form.");

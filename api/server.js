@@ -11,9 +11,9 @@ server.use(express.json());
 function newPost(body) {
 console.log(body)
   return new Post({
-    title: body.title,
-    author: body.author,
-    body: body.body,
+    "title": `${body.title}`,
+    "author": `${body.author}`,
+    "body": `${body.body}`,
   })
     
 }
