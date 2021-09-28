@@ -1,5 +1,5 @@
 # Telegraph clone
-
+*created by Callum & Brodie*
 
 ## Installation & Usage
 
