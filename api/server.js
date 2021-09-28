@@ -12,15 +12,16 @@ function newPost(body) {
 console.log('creating new post with body')
 console.log(body)
   return new Post({
-    "title": `${body.title}`,
-    "author": `${body.author}`,
-    "body": `${body.body}`,
+    "title": body.title,
+    "author": body.author,
+    "body": body.body,
   })
     
 }
 
 server.get("/", (req, res) => res.send("hello world"));
 server.post("/add-post", (req, res) => {
+    console.log(req)
 //   newPost(req.body.title, req.body.name, req.body.entry);
   const postToAdd = newPost(req.body)
   postToAdd.save()
