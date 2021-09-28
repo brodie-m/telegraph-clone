@@ -8,12 +8,12 @@ server.use(cors());
 server.use(express.json());
 
 function newPost(title, author, body) {
-  new Post({
+  const postToAdd = new Post({
     title: title,
     author: author,
     body: body,
   })
-    .save()
+    postToAdd.save()
     .then((result) => {
       res.send(result);
     })
