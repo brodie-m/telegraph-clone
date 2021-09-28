@@ -21,9 +21,8 @@ console.log(body)
 
 server.get("/", (req, res) => res.send("hello world"));
 server.post("/add-post", (req, res) => {
-    console.log(req)
 //   newPost(req.body.title, req.body.name, req.body.entry);
-  const postToAdd = newPost(req.body)
+  const postToAdd = newPost(JSON.parse(req.body))
   postToAdd.save()
     .then((result) => {
       res.send(result);

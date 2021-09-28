@@ -10,14 +10,15 @@ addentry.addEventListener("click", () => {
     const options = {
       "method": 'POST',
       "Content-Type": "application/json",
-      "body": JSON.stringify({
+      json:true,
+      body: {
         title: title.value,
         author: pseudo.value,
         body: entry.value,
-      }),
+      },
     };
     console.log(options)
-    fetch(`https://${host}/add-post`, options).then((res) => alert(res.msg));
+    fetch(`https://${host}/add-post`, options).then((res) => res.send);
   } else {
     alert("Please complete the form.");
   }
