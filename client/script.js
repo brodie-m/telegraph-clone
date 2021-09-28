@@ -1,3 +1,5 @@
+const host = "fp-telegraph-clone.herokuapp.com"
+
 addentry.addEventListener("click", () => {
   if (title.value != "" && pseudo.value != "" && entry.value != "") {
     const options = {
@@ -5,15 +7,20 @@ addentry.addEventListener("click", () => {
         title: title.value,
         name: pseudo.value,
         entry: entry.value,
-      })
+      }),
     };
-    fetch(`${host}/add-post`, options).then((res) => alert(res.msg));
+    fetch(`https://${host}/add-post`, options).then((res) => alert(res.msg));
   } else {
     alert("Please complete the form.");
   }
 });
 
-revealall.addEventListener("click", () =>{
-if(newentry.hidden){newentry.hidden=false}
-else{newentry.hidden = true}
-})
+revealall.addEventListener("click", (e) => {
+  e.preventDefault();
+  newentry.hidden = false;
+});
+
+cancel.addEventListener("click", (e) => {
+  newentry.hidden = true;
+  for(let o of inputs.children){o.value = ""}
+});
