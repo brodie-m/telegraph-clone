@@ -9,6 +9,7 @@ server.use(express.json());
 
 // function newPost(title, author, body) {}
 function newPost(body) {
+console.log(body)
   return new Post({
     title: body.title,
     author: body.author,
