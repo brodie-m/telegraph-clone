@@ -1,1 +1,28 @@
 .entryCard > input {float: left};
+
+
+html {
+    font-family: 'Noto Sans Display', sans-serif !important;
+}
+
+#host-div {
+    display:flex;
+    justify-content: center;
+    width: 80vw;
+    left: 10vw;
+    right: 10vw;
+    margin-top: 10vh;
+    box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.05)
+}
+
+#host-div h2 {
+    font-size: 1rem;
+}
+#host-div h1, #host-div h2 {
+    margin-left: 5px;
+}
+
+#host-div p {
+    text-align: center;
+}
+

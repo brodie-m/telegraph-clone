@@ -1,13 +1,18 @@
 const host = "fp-telegraph-clone.herokuapp.com"
 const clientURL = window.location.href
+console.log(window.location.hash)
 const clientURLArray = clientURL.split('/')
 const title = document.getElementById('title')
 const pseudo = document.getElementById('pseudo');
 const entry = document.getElementById('entry');
+document.addEventListener('DOMContentLoaded', init(), false);
+window.addEventListener('hashchange',init())
 
 
-
-
+//run main page gen if page hash is empty
+function init() {
+if (!window.location.hash) {
+  console.log('empty hash')
 addentry.addEventListener("click", async () => {
   console.log(title.value,pseudo.value,entry.value)
   if (title.value != "" && pseudo.value != "" && entry.value != "") {
@@ -39,10 +44,9 @@ async function redirectToPost() {
   const recentPost = await allPosts[allPosts.length-1]
   const recentPostId = await recentPost._id;
   window.location.href = `./#single-post-${recentPostId}`
-  
+  renderPost();
   
 }
-<<<<<<< HEAD
 
 
 
@@ -55,8 +59,10 @@ cancel.addEventListener("click", (e) => {
   newentry.hidden = true;
   for(let o of inputs.children){o.value = ""}
 });
-
-
+}
+else {
+  renderPost();
+}
 function renderPost() {
   const hash = window.location.hash
   const hashArr = hash.split('-')
@@ -66,24 +72,39 @@ function renderPost() {
 
 async function getPostData(postId) {
   const data = await fetch(`https://${host}/single-post/${postId}`)
-  const json = await data.json()
-  renderSinglePost(json);
+  const jsonData = await data.json()
+  renderSinglePost(jsonData);
 }
 function renderSinglePost(data) {
+  //hide previous stuff
+  newentry.hidden = true;
+  //render new post
+  console.log('rendering post')
+  console.log(data)
+  const hostDiv = document.getElementById('host-div')
   const container = document.createElement('div')
   const postTitle = document.createElement('h1')
   const postAuthor = document.createElement('h2')
   const postBody = document.createElement('p')
+  const postFooter = document.createElement('div')
+  const postIdText = document.createElement('p')
+  hostDiv.classList.add('card');
+  postTitle.classList.add('card-title');
+  postAuthor.classList.add('card-text','text-muted')
+  postBody.classList.add('card-text')
+  postIdText.classList.add('card-text')
+  postFooter.classList.add('card-footer')
   container.appendChild(postTitle)
   container.appendChild(postAuthor)
   container.appendChild(postBody)
+  container.appendChild(postFooter)
+  postFooter.appendChild(postIdText)
+  hostDiv.appendChild(container)
   postTitle.textContent = data.title;
   postAuthor.textContent = data.author;
   postBody.textContent = data.body;
-
+  postFooter.textContent = `post id: ${data._id}`
+}
 }
 
 
-
-=======
->>>>>>> 63ce433b00156208acbd39b3094ebea1864b7e3a
