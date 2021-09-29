@@ -12,11 +12,12 @@ server.use(express.json());
 server.get("/", (req, res) => res.send("hello world"));
 server.post("/add-post", (req, res) => {
 //   newPost(req.body.title, req.body.name, req.body.entry);
-new Post({
-    title: JSON.parse(req.body).title,
-    author: JSON.parse(req.body).author,
-    body: JSON.parse(req.body).body,
-  }).save()
+const newPost = new Post({
+    title: req.body.title,
+    author: req.body.author,
+    body: req.body.body,
+  })
+  newPost.save()
     .then((result) => {
       res.send(req.body);
     })
