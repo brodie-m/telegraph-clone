@@ -7,7 +7,7 @@ const title = document.getElementById('title')
 const pseudo = document.getElementById('pseudo');
 const entry = document.getElementById('entry');
 document.addEventListener('DOMContentLoaded', init(), false);
-window.addEventListener('hashchange',init())
+// window.addEventListener('hashchange',init())
 
 
 //run main page gen if page hash is empty
@@ -51,15 +51,15 @@ async function redirectToPost() {
 
 
 
-revealall.addEventListener("click", (e) => {
-  e.preventDefault();
-  newentry.hidden = false;
-});
+// revealall.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   newentry.hidden = false;
+// });
 
-cancel.addEventListener("click", (e) => {
-  newentry.hidden = true;
-  for(let o of inputs.children){o.value = ""}
-});
+// cancel.addEventListener("click", (e) => {
+//   newentry.hidden = true;
+//   for(let o of inputs.children){o.value = ""}
+// });
 }
 else {
   renderPost();
