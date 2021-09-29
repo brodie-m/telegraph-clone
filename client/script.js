@@ -1,6 +1,6 @@
 const host = "fp-telegraph-clone.herokuapp.com"
 const clientURL = window.location.href
-
+const clientRouter = require('./routing')
 const title = document.getElementById('title')
 const pseudo = document.getElementById('pseudo');
 const entry = document.getElementById('entry');
