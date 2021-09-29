@@ -12,7 +12,6 @@ addentry.addEventListener("click", async () => {
       headers: {
         'Accept': 'application/json',
         "Content-Type": "application/json"
-
       },
       body: JSON.stringify({
         title: title.value,
@@ -25,14 +24,4 @@ addentry.addEventListener("click", async () => {
   } else {
     alert("Please complete the form.");
   }
-});
-
-revealall.addEventListener("click", (e) => {
-  e.preventDefault();
-  newentry.hidden = false;
-});
-
-cancel.addEventListener("click", (e) => {
-  newentry.hidden = true;
-  for(let o of inputs.children){o.value = ""}
 });

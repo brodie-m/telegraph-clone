@@ -5,7 +5,11 @@
     rel="stylesheet"
     crossorigin="anonymous"
   />
-  <link rel="stylesheet" href="./style.css" />
+  <style>
+    #addentry{display: inline-block;border-radius: 40%; text-align:center; background-color: rgb(175, 175, 175); color: black; width: 30%
+}
+#addentry:hover {color: white; background-color: rgb(116, 116, 116)}
+  </style>
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -13,7 +17,6 @@
     <title>Telegraph Clone</title>
   </head>
   <body>
-    <button id="revealall">New post</button>
     <section class="main-content">
       <div class="main-title"></div>
       <div class="name"></div>
@@ -21,8 +24,8 @@
       <div class="publish-button"></div>
     </section>
     <!-- need title, your name, your story, publish button -->
-    <div class="entryCard">
-      <form id="newentry" hidden="true" display="inline-block">
+    <div id = "newentry" class="entryCard col-md-7  col-sm-10 card text-center shadow mx-4 my-4" style = "width: auto; margin: auto">
+      <form>
         <div class="row justify-content-around">
           <div class="card-body d-flex flex-column" id="inputs">
             <input
@@ -44,8 +47,7 @@
               placeholder="Your entry"
             ></textarea>
           </div>
-          <input id="addentry" type="button" value="Submit" />
-          <input id="cancel" type="button" value="Cancel" />
+          <input id="addentry" class = "button publish_button" type="button publish_button" value="Publish"/>
         </div>
       </form>
     </div>
