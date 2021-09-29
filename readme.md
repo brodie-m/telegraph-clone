@@ -38,7 +38,9 @@
 ## Wins & Challenges
 
 ### Wins
-- 
+- Getting page redirect to work
+- Cloud db
+- Everything hosted on a different service (front end, db, back end)
 
 ### Challenges
-- 
+- Getting page redirect to work

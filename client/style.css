@@ -26,3 +26,22 @@ html {
     text-align: center;
 }
 
+.main-title h1 {
+    margin-left: 2vw;
+    margin-top: 5vh;
+    font-family: 'Noto Sans Display', sans-serif !important;
+}
+
+#addentry {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.noselect {
+    user-select:none;
+}
+
+#main-display-card {
+    padding: 10px;
+}
+

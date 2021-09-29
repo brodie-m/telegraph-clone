@@ -19,11 +19,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Telegraph Clone</title>
+    <title>Not Telegraph</title>
   </head>
   <body>
     <section class="main-content">
-      <div class="main-title"></div>
+      <div class="main-title">
+        <h1>Not Telegraph</h1>
+      </div>
       <div class="name"></div>
       <div class="story-text"></div>
       <div class="publish-button"></div>
@@ -31,7 +33,7 @@
     <!-- need title, your name, your story, publish button -->
     <div id = "newentry" class="entryCard col-md-7  col-sm-10 card text-center shadow mx-4 my-4" style = "width: auto; margin: auto">
       <form>
-        <div class="row justify-content-around">
+        <div class="row justify-content-around" id="main-display-card">
           <div class="card-body d-flex flex-column" id="inputs">
             <input
               class="form-control my-2"
@@ -52,12 +54,12 @@
               placeholder="Your entry"
             ></textarea>
           </div>
-          <input id="addentry" class = "button publish_button" type="button publish_button" value="Publish"/>
+          <input id="addentry" class = "button publish_button noselect" type="button publish_button" value="Publish"/>
         </div>
       </form>
     </div>
     <div class="host-div" id="host-div"></div>
   </body>
   <!-- change below to bundle js for later -->
-  <script src="./bundle.js"></script>
+  <script src="./bundle.js" defer></script>
 </html>
