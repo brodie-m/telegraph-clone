@@ -16,7 +16,6 @@ addentry.addEventListener("click", async () => {
       headers: {
         'Accept': 'application/json',
         "Content-Type": "application/json"
-
       },
       body: JSON.stringify({
         title: title.value,
@@ -43,6 +42,7 @@ async function redirectToPost() {
   
   
 }
+<<<<<<< HEAD
 
 
 
@@ -85,3 +85,5 @@ function renderSinglePost(data) {
 
 
 
+=======
+>>>>>>> 63ce433b00156208acbd39b3094ebea1864b7e3a
