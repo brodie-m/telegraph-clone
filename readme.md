@@ -10,6 +10,7 @@
 - hit publish to save and view your post!
 - you can return to your post at a later date using the post id
 - simply add the hash to the end of the url: #single-post-<postId>
+- please note that you may have to press return on the new url (perhaps many times)
 
 
 ## Changelog
