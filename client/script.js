@@ -1,4 +1,6 @@
 const host = "fp-telegraph-clone.herokuapp.com"
+const clientURL = window.location.href
+
 const title = document.getElementById('title')
 const pseudo = document.getElementById('pseudo');
 const entry = document.getElementById('entry');
@@ -36,7 +38,9 @@ async function redirectToPost() {
   const recentPost = await allPosts[allPosts.length-1]
   const recentPostId = await recentPost._id;
   console.log(recentPost,recentPostId)
-  window.location = `http://localhost:3000/single-post/${recentPostId}`
+  console.log(clientURL)
+  window.location.href = `./html/single-post.html`
+  console.log(clientURL)
   
 }
 
