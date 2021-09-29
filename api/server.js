@@ -46,6 +46,16 @@ server.get("/single-post", (req, res) => {
     });
 });
 
+server.get("/single-post/:id", (req,res) => {
+  Post.findById(`${req.params.id}`)
+    .then((result)=> {
+      res.send(result)
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+})
+
 //connect to mongoDB
 const dbURI =
   "mongodb+srv://db-admin:db-password-1234@cluster0.t1ajl.mongodb.net/posts-db?retryWrites=true&w=majority";
