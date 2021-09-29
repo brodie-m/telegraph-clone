@@ -1,0 +1,1 @@
+const postData = fetch()
